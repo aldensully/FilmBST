@@ -1,4 +1,5 @@
 #ifndef FILM_H
+#define FILM_H
 #include <string>
 using namespace std;
 
@@ -30,5 +31,4 @@ class Film{
         double totalGross;
         double openingGross;
 };
-#define FILM_H
 #endif

@@ -12,6 +12,7 @@ class FilmDS{
         void remove(const Film& film);
         void displayInOrder();
         void displayTitles();
+        void displayInRankOrder();
         void searchByTitle(string title);
         void searchByKeyword(string keyword);
         void searchByStudio(string studio);

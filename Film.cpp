@@ -66,11 +66,11 @@ void Film::printTitle(void) const{
 }
 //overloaded operators
 bool Film::operator <(const Film& rhs) const{
-    return (this->rank < rhs.rank);
+    return (this->filmTitle < rhs.filmTitle);
 }
 bool Film::operator >(const Film& rhs)const{
-    return (this->rank > rhs.rank);
+    return (this->filmTitle > rhs.filmTitle);
 }
 bool Film::operator ==(const Film& rhs)const{
-    return (this->rank == rhs.rank); //TODO add more fields to match on or use a unique id instead of just rank
+    return (this->filmTitle == rhs.filmTitle); //TODO add more fields to match on or use a unique id instead of just rank
 }
