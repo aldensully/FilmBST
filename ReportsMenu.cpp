@@ -9,47 +9,53 @@ class ReportsMenu : public Submenu{
         ReportsMenu(){};
         void display();
         void run(stack<Submenu*>& submenus,FilmDS films);
-        void orderByTitleReport(FilmDS& films);
-        void orderByRankReport(FilmDS& films);
         ~ReportsMenu(){};
 };
 void ReportsMenu::display(){
             cout << "\nREPORTS MENU" << endl;
-            cout << "T - Order by Film Title report" << endl;
-            cout << "R - Order by Rank report" << endl;
-            cout << "X - Return to main menu" << endl;
+            cout << "t - Order by Film Title report" << endl;
+            cout << "r - Order by Rank report" << endl;
+            cout << "x - Return to main menu" << endl;
 }
 void ReportsMenu::run(stack<Submenu*>& submenus, FilmDS films){
     string userInput;
     char inp;
-    
+    bool terminate = false; 
     display();
 
-    while(inp != 'X' && inp != 'x'){
+    while(!terminate){
         cout << "\nEnter Selection(or '?' to show menu)-> ";
         cin >> userInput;
         inp = userInput[0];
     
         switch(inp){
             case 'T':
-                orderByTitleReport(films);
+                films.displayInOrder();
+                break;
+            case 't':
+                films.displayInOrder();
                 break;
             case 'R':
-                orderByRankReport(films);
+                films.displayInRankOrder();
+                break;
+            case 'r':
+                films.displayInRankOrder();
                 break;
             case '?':
                 display();
+                break;
+            case 'X':
+                terminate = true;
+                break;
+            case 'x':
+                terminate = true;
+                break;
+            default:
                 break;
         }
     }
 
     submenus.pop();
 
-}
-void ReportsMenu::orderByTitleReport(FilmDS& films){
-    films.displayInOrder();
-}
-void ReportsMenu::orderByRankReport(FilmDS& films){
-    films.displayInRankOrder();
 }
 

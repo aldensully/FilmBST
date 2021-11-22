@@ -57,10 +57,27 @@ string Film::getStudio(void){
     return studio;
 }
 
-//functions called in binarySearch
-void Film::printAllInfo(void) const{
-    cout << "placeholder for ALL the movie info" << endl;
+//format large number
+string formatNum(int num){
+    auto s = to_string(num);
+    int n = s.length() - 3;
+    while(n>0){
+        s.insert(n,",");
+        n-=3;
+    }
+    s.insert(0,"$");
+    return s;
 }
+//functions called in binarySearch
+void Film::printAllInfo(void){
+    cout << setw(50) << left << filmTitle << setw(10) << rank << setw(10) << studio << setw(20) << formatNum((int)totalGross) << setw(20) << totalTheaters << setw(20) << formatNum((int)openingGross) << setw(20) << openingTheaters << openingDate << endl; 
+}
+string Film::getAllInfo(void){ //outputs formatted information
+    stringstream out;
+    out << setw(50) << left << filmTitle << setw(10) << rank << setw(10) << studio << setw(20) << formatNum((int)totalGross) << setw(20) << totalTheaters << setw(20) << formatNum((int)openingGross) << setw(20) << openingTheaters << openingDate << endl; 
+    return out.str();
+}
+
 void Film::printTitle(void) const{
     cout << filmTitle << endl;
 }

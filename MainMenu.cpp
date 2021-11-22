@@ -10,21 +10,19 @@ using namespace std;
 class MainMenu : public Submenu{
     public:
         MainMenu(){};
-        FilmDS* films;
         void display();
         void run(stack<Submenu*>& submenus,FilmDS films);
         ~MainMenu(){};
 };
 void MainMenu::display(){
     cout << "\nMAIN MENU" << endl;
-    cout << "A - About the Application" << endl;
-    cout << "R - Reports" << endl;
-    cout << "S - Search the Database" << endl;
-    cout << "X - Exit the Program" << endl;
+    cout << "a - About the Application" << endl;
+    cout << "r - Reports" << endl;
+    cout << "s - Search the Database" << endl;
+    cout << "x - Exit the Program" << endl;
 };
 void MainMenu::run(stack<Submenu*>& submenus,FilmDS films){
 
-    films = films;
     string userInput;
     char inp;
    
@@ -37,10 +35,19 @@ void MainMenu::run(stack<Submenu*>& submenus,FilmDS films){
         case 'A':
             submenus.push(new AboutMenu());
             break;
+        case 'a':
+            submenus.push(new AboutMenu());
+            break;
         case 'R':
             submenus.push(new ReportsMenu());
             break;
+        case 'r':
+            submenus.push(new ReportsMenu());
+            break;
         case 'S':
+            submenus.push(new SearchMenu());
+            break;
+        case 's':
             submenus.push(new SearchMenu());
             break;
         case 'X':

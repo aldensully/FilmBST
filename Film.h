@@ -13,9 +13,10 @@ class Film{
         string getOpeningDate(void);
         string getFilmTitle(void);
         string getStudio(void);
+        string getAllInfo(void);
         double getTotalGross(void);
         double getOpeningGross(void);
-        void printAllInfo(void) const; 
+        void printAllInfo(void); 
         void printTitle(void) const;
         bool operator< (const Film& rhs) const;
         bool operator> (const Film& rhs) const;

@@ -20,8 +20,6 @@ BinarySearchTree<T>::BinarySearchTree() : root(nullptr) {
 }
 template <class T>
 BinarySearchTree<T>::BinarySearchTree(const BinarySearchTree& orig) {
-    //TODO copy all nodes to create new tree
-//    std::cout << "COPY constructor called - shallow copy performed!!" << std::endl;
     root = this->copyTree(orig.root);
 }
 template <class T>
@@ -111,7 +109,6 @@ void BinarySearchTree<T>::inorder(BinaryNode<T>* currRoot, void visit(T& item)) 
     if (currRoot != nullptr) {
         inorder(currRoot->getLeftChild(), visit);
         T item = currRoot->getItem();
-        //std::cout << item << std::endl;
         visit(item);
         inorder(currRoot->getRightChild(), visit);
     }
